@@ -28,7 +28,21 @@ switch(actions[current_event, instruction]){
     
     
     
-    //
+        //                      TIMER                        //
+        
+        
+    
+        
+    case event.timer_set_pos:
+        instruction = e; //start instruction
+        print("event.dia_set_advance_event");
+        current_main_timer = instruction_value();
+    break;
+    case event.timer_set_to:
+        instruction = e; //start instruction
+        print("event.dia_set_advance_event");
+        timer[current_main_timer] = instruction_value();
+    break;
     
     
     
@@ -37,6 +51,8 @@ switch(actions[current_event, instruction]){
     
         
     case event.wait_for_user_prompt:
+    case event.wait_one_frame:
+    case event.wait_until_timer:
         print("waiting event")
         instruction_loop_lock = e; //lock until instruction done
         if !wait_for_instruction_fulfilled{
@@ -56,5 +72,8 @@ switch(actions[current_event, instruction]){
         instruction = e; //start instruction
         print("event.allowed_to_continue", event.allowed_to_continue);
         can_continue_event = action_event[current_event, instruction];
+    break;
+    default:
+        print("AVLIE ERROR: feature not implemented")
     break;
 }

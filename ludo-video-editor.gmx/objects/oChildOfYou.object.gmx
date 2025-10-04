@@ -48,10 +48,14 @@ start_event(++c, false);
     avlie_wait_for_user_input(action.interact);
     avlie_end_instruction();
 start_event(++c, false);
-    avlie_wait_for_user_input(action.second);
+    avlie_timer_set_pos(0);
+    avlie_timer_set_to(SECONDS * 3);
+    avlie_wait_until_timer();
     avlie_end_instruction();
 start_event(++c, false);
+    avlie_wait_one_frame();
     avlie_wait_for_user_input(action.tertiary);
+    avlie_wait_one_frame();
     avlie_end_event();
 print("FINISHED MAKING EVENTS");
 
