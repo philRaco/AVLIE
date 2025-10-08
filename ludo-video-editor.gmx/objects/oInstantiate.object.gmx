@@ -66,6 +66,13 @@ set_controls(
     ord('X'),ord('Z'),ord('C'),
     vk_enter
 );
+
+enum scene_bg{
+    invalid,
+    cst_tts,
+    light_fire,
+    bg_fs
+}
 </string>
           </argument>
         </arguments>
@@ -163,6 +170,9 @@ global.startsRoomTimer++;
           <argument>
             <kind>1</kind>
             <string>room_speed = framerate;
+
+view_wview[0] = SCREEN_SIZE_X;
+view_hview[0] = SCREEN_SIZE_Y;
 </string>
           </argument>
         </arguments>
